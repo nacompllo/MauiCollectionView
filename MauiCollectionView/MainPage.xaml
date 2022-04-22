@@ -3,196 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiCollectionView.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout>
+    <StackLayout>
+        <RefreshView IsRefreshing="False"
+                     Margin="10,10,10,10">
             <CollectionView 
                     ItemsSource="{Binding Bots}"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout 
-                            Padding="0,0,0,20">
-                            <Grid 
-                                HorizontalOptions="CenterAndExpand"
-                                VerticalOptions="Start"
-                                HeightRequest="30"
-                                RowSpacing="10"
-                                ColumnSpacing="10"
-                                ColumnDefinitions="70, 7*, 3*" 
-                                RowDefinitions="Auto">
-                                <VerticalStackLayout
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="FillAndExpand">
-                                    <Image
-                                        Aspect="AspectFit"
-                                        WidthRequest="40"
-                                        HeightRequest="40"/>
-                                </VerticalStackLayout>
-                                <VerticalStackLayout
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="FillAndExpand">
-                                    <Label 
-                                        Text="{Binding Name}" 
-                                        LineBreakMode="CharacterWrap"
-                                        TextColor="White"
-                                        FontSize="14"/>
-                                    <Grid 
-                                        HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="FillAndExpand"
-                                        RowSpacing="10"
-                                        ColumnSpacing="10"
-                                        ColumnDefinitions="Auto, *" 
-                                        RowDefinitions="Auto">
-                                        <VerticalStackLayout
-                                            Grid.Row="0"
-                                            Grid.Column="0">
-                                            <Label 
-                                                Text="{Binding Name}" 
-                                                TextColor="White"
-                                                FontSize="14"/>
-                                            <Label 
-                                                Text="{Binding Name}" 
-                                                TextColor="White"
-                                                FontSize="14"/>
-                                        </VerticalStackLayout>
-                                        <Label 
-                                            Grid.Row="0"
-                                            Grid.Column="1"
-                                            Text="{Binding Name}" 
-                                            TextColor="White"
-                                            FontSize="14"/>
-                                    </Grid>
-                                </VerticalStackLayout>
-                                <VerticalStackLayout
-                                    Grid.Row="0"
-                                    Grid.Column="2"
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="FillAndExpand">
-                                    <Grid 
-                                        HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="FillAndExpand"
-                                        RowSpacing="10"
-                                        ColumnSpacing="10"
-                                        ColumnDefinitions="Auto" 
-                                        RowDefinitions="Auto, Auto">
-                                        <Label 
-                                            Grid.Row="0"
-                                            Grid.Column="0"
-                                            Text="{Binding Name}" 
-                                            TextColor="White"
-                                            FontSize="14"/>
-                                        <Label 
-                                            Grid.Row="1"
-                                            Grid.Column="0"
-                                            Text="{Binding Name}" 
-                                            TextColor="White"
-                                            FontSize="14"/>
-                                    </Grid>
-                                </VerticalStackLayout>
-                            </Grid>
-
-                            <VerticalStackLayout 
-                                Padding="0,0,0,10">
-                                <Grid 
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="FillAndExpand"
-                                    RowSpacing="10"
-                                    ColumnSpacing="10"
-                                    ColumnDefinitions="70, *" 
-                                    RowDefinitions="Auto">
-                                    <Image
-                                        Grid.Row="0"
-                                        Grid.Column="0"
-                                        Aspect="AspectFit"
-                                        WidthRequest="40"
-                                        HeightRequest="40"/>
-                                    <VerticalStackLayout 
-                                        Grid.Row="0"
-                                        Grid.Column="1"
-                                        Opacity="0"
-                                        HorizontalOptions="FillAndExpand"
-                                        VerticalOptions="FillAndExpand"/>
-                                </Grid>
-                                <Grid 
-                                    Padding="10,10,10,0"
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="FillAndExpand"
-                                    RowSpacing="10"
-                                    ColumnSpacing="10"
-                                    ColumnDefinitions="3.3*,3.3*,3.3*" 
-                                    RowDefinitions="Auto">
-                                    <Frame 
-                                        Grid.Row="0"
-                                        Grid.Column="0"
-                                        HorizontalOptions="FillAndExpand"
-                                        VerticalOptions="FillAndExpand"
-                                        Padding="10,10,10,10"
-                                        BackgroundColor="Black"
-                                        BorderColor="Green"
-                                        CornerRadius="20">
-                                        <ImageButton 
-                                            Source="dotnet_bot.svg"
-                                            Aspect="AspectFit"
-                                            WidthRequest="25"
-                                            HeightRequest="25"
-                                            HorizontalOptions="FillAndExpand"
-                                            VerticalOptions="FillAndExpand"
-                                            BackgroundColor="Transparent"/>
-                                    </Frame>
-                                    <Frame 
-                                        Grid.Row="0"
-                                        Grid.Column="1"
-                                        HorizontalOptions="FillAndExpand"
-                                        VerticalOptions="FillAndExpand"
-                                        Padding="10,10,10,10"
-                                        BackgroundColor="Black"
-                                        BorderColor="Green"
-                                        CornerRadius="20">
-                                        <ImageButton 
-                                            Source="dotnet_bot.svg"
-                                            Aspect="AspectFit"
-                                            WidthRequest="25"
-                                            HeightRequest="25"
-                                            HorizontalOptions="FillAndExpand"
-                                            VerticalOptions="FillAndExpand"
-                                            BackgroundColor="Transparent"/>
-                                    </Frame>
-                                    <Frame 
-                                        Grid.Row="0"
-                                        Grid.Column="2"
-                                        HorizontalOptions="FillAndExpand"
-                                        VerticalOptions="FillAndExpand"
-                                        Padding="10,10,10,10"
-                                        BackgroundColor="Black"
-                                        BorderColor="Green"
-                                        CornerRadius="20">
-                                        <ImageButton
-                                            Source="dotnet_bot.svg"
-                                            Aspect="AspectFit"
-                                            WidthRequest="25"
-                                            HeightRequest="25"
-                                            HorizontalOptions="FillAndExpand"
-                                            VerticalOptions="FillAndExpand"
-                                            BackgroundColor="Transparent"/>
-                                    </Frame>
-                                </Grid>
-                            </VerticalStackLayout>
-                            <BoxView 
-                                HeightRequest="1"
-                                BackgroundColor="Green"
-                                Opacity="0.5"
-                                HorizontalOptions="FillAndExpand"
-                                VerticalOptions="Start"/>
-                        </VerticalStackLayout>
+                        <Label 
+                            Text="Item1"
+                            TextColor="White"
+                            FontSize="20"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
+        </RefreshView>
+    </StackLayout>
 </ContentPage>
     
