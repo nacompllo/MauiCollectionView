@@ -31,7 +31,7 @@ namespace MauiCollectionView
 
         public MainPageViewModel()
         {
-            for (var i = 0; i < 300; i++)
+            for (var i = 0; i < 15; i++)
             {
                 Bots.Add(new Bot
                 {
