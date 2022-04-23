@@ -5,5 +5,11 @@
              x:Class="MauiCollectionView.App">
     <Application.Resources>
         <ResourceDictionary Source="Resources/Styles.xaml" />
+
+        <Style x:Key="DefaultSearchBarStyle"
+               TargetType="SearchBar">
+            <Setter Property="PlaceholderColor" Value="Red" />
+            <Setter Property="TextColor" Value="Blue" />
+        </Style>
     </Application.Resources>
 </Application>
