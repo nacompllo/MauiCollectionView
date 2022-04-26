@@ -7,4 +7,9 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 		BindingContext = new MainPageViewModel();
 	}
+
+    private void Editor_Completed(object sender, EventArgs e)
+    {
+
+    }
 }
