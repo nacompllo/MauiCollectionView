@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace MauiCollectionView
 {
@@ -18,25 +19,30 @@ namespace MauiCollectionView
 
         #endregion
 
-        private ObservableCollection<Bot> _bots = new ObservableCollection<Bot>();
-        public ObservableCollection<Bot> Bots
+        public ICommand SelectFileCommand => new Command(async () => await SelectFile());
+
+        private async Task<FileResult> SelectFile()
         {
-            get => _bots;
-            set
+            var options = new PickOptions
             {
-                _bots = value;
-                RaiseOnPropertyChanged();
-            }
+                PickerTitle = "Please select an video",
+                FileTypes = FilePickerFileType.Videos,
+            };
+            var file = await PickAndShow(options);
+            return file;
         }
 
-        public MainPageViewModel()
+        private async Task<FileResult> PickAndShow(PickOptions options)
         {
-            for (var i = 0; i < 300; i++)
+            try
             {
-                Bots.Add(new Bot
-                {
-                    Name = $"Bot {i}"
-                });
+                var basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                var result = await FilePicker.PickAsync(options);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }
