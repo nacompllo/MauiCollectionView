@@ -19,7 +19,30 @@
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 BackgroundColor="Black">
-                
+                <VerticalStackLayout
+                    Padding="0,0,0,10">
+                    <Label
+                        Text="Height"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="20"/>
+                    <Entry 
+                        Text="{Binding SelectedBot.Height}"
+                        TextColor="White"
+                        FontSize="20"/>
+                </VerticalStackLayout>                
+                <VerticalStackLayout
+                    Padding="0,0,0,10">
+                    <Label
+                        Text="Width"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="20"/>
+                    <Entry 
+                        Text="{Binding SelectedBot.Width}"
+                        TextColor="White"
+                        FontSize="20"/>
+                </VerticalStackLayout>
             </VerticalStackLayout>
             <CollectionView 
                 Grid.Row="0"
@@ -30,6 +53,8 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <VerticalStackLayout
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
                             HeightRequest="{Binding Height}"
                             WidthRequest="{Binding Width}">
                             <Label

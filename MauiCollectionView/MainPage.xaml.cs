@@ -19,5 +19,6 @@ public partial class MainPage : ContentPage
             bot.IsSelected = false;
         }
         botSelected.IsSelected = true;
+        ((MainPageViewModel)BindingContext).SelectedBot = botSelected;
     }
 }

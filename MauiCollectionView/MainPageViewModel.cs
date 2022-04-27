@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace MauiCollectionView
 {
-    public class MainPageViewModel
+    public class MainPageViewModel : INotifyPropertyChanged
     {
         #region INotifyPropertyChanged implementation
 
@@ -30,18 +30,48 @@ namespace MauiCollectionView
             }
         }
 
-        private bool _defaultItemTemplateEnabled;
-        public bool DefaultItemTemplateEnabled
+        private Bot _selectedBot;
+        public Bot SelectedBot
         {
-            get => _defaultItemTemplateEnabled;
+            get => _selectedBot;
             set
             {
-                _defaultItemTemplateEnabled = value;
+                _selectedBot = value;
                 RaiseOnPropertyChanged();
             }
-        }
+        }         
+        
+        private double _selectedBotHeight;
+        public double SelectedBotHeight
+        {
+            get => _selectedBotHeight;
+            set
+            {
+                _selectedBotHeight = value;
+                RaiseOnPropertyChanged();
 
-        public ICommand ChangeItemTemplateCommand => new Command(() => ChangeItemTemplate());
+                if (SelectedBot != null)
+                {
+                    SelectedBot.Height = value;
+                }
+            }
+        }        
+        
+        private double _selectedBotWidth;
+        public double SelectedBotWidth
+        {
+            get => _selectedBotWidth;
+            set
+            {
+                _selectedBotWidth = value;
+                RaiseOnPropertyChanged();
+
+                if (SelectedBot != null)
+                {
+                    SelectedBot.Width = value;
+                }
+            }
+        }
 
         public MainPageViewModel()
         {
@@ -54,11 +84,6 @@ namespace MauiCollectionView
                     Height = 100
                 });
             }
-        }
-
-        private void ChangeItemTemplate()
-        {
-            DefaultItemTemplateEnabled = !DefaultItemTemplateEnabled;
         }
     }
 }
