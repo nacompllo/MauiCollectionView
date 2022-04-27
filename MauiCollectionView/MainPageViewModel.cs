@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
 
 namespace MauiCollectionView
 {
@@ -38,38 +37,6 @@ namespace MauiCollectionView
             {
                 _selectedBot = value;
                 RaiseOnPropertyChanged();
-            }
-        }         
-        
-        private double _selectedBotHeight;
-        public double SelectedBotHeight
-        {
-            get => _selectedBotHeight;
-            set
-            {
-                _selectedBotHeight = value;
-                RaiseOnPropertyChanged();
-
-                if (SelectedBot != null)
-                {
-                    SelectedBot.Height = value;
-                }
-            }
-        }        
-        
-        private double _selectedBotWidth;
-        public double SelectedBotWidth
-        {
-            get => _selectedBotWidth;
-            set
-            {
-                _selectedBotWidth = value;
-                RaiseOnPropertyChanged();
-
-                if (SelectedBot != null)
-                {
-                    SelectedBot.Width = value;
-                }
             }
         }
 
