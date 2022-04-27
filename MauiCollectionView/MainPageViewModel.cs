@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace MauiCollectionView
 {
@@ -29,15 +30,33 @@ namespace MauiCollectionView
             }
         }
 
+        private bool _defaultItemTemplateEnabled;
+        public bool DefaultItemTemplateEnabled
+        {
+            get => _defaultItemTemplateEnabled;
+            set
+            {
+                _defaultItemTemplateEnabled = value;
+                RaiseOnPropertyChanged();
+            }
+        }
+
+        public ICommand ChangeItemTemplateCommand => new Command(() => ChangeItemTemplate());
+
         public MainPageViewModel()
         {
-            for (var i = 0; i < 300; i++)
+            for (var i = 0; i < 10; i++)
             {
                 Bots.Add(new Bot
                 {
                     Name = $"Bot {i}"
                 });
             }
+        }
+
+        private void ChangeItemTemplate()
+        {
+            DefaultItemTemplateEnabled = !DefaultItemTemplateEnabled;
         }
     }
 }
