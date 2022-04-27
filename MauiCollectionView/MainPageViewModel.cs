@@ -49,7 +49,9 @@ namespace MauiCollectionView
             {
                 Bots.Add(new Bot
                 {
-                    Name = $"Bot {i}"
+                    Name = $"Bot {i}",
+                    Width = 100,
+                    Height = 100
                 });
             }
         }
