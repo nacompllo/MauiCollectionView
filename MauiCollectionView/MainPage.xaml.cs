@@ -1,6 +1,4 @@
-﻿using MauiCollectionView.Models;
-
-namespace MauiCollectionView;
+﻿namespace MauiCollectionView;
 
 public partial class MainPage : ContentPage
 {
@@ -8,17 +6,5 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
         BindingContext = new MainPageViewModel();
-    }
-
-    private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-    {
-        var botSelected = ((TappedEventArgs)e).Parameter as Bot;
-        var bots = ((MainPageViewModel)BindingContext).Bots;
-        foreach (var bot in bots)
-        {
-            bot.IsSelected = false;
-        }
-        botSelected.IsSelected = true;
-        ((MainPageViewModel)BindingContext).SelectedBot = botSelected;
     }
 }

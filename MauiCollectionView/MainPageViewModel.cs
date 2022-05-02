@@ -42,7 +42,7 @@ namespace MauiCollectionView
 
         public MainPageViewModel()
         {
-            for (var i = 0; i < 10; i++)
+            for (var i = 0; i < 5; i++)
             {
                 Bots.Add(new Bot
                 {
@@ -50,6 +50,19 @@ namespace MauiCollectionView
                     Width = 100,
                     Height = 100
                 });
+            }
+
+            for (var i = 0; i < Bots.Count; i++)
+            {
+                var rnd = new Random();
+                var number = rnd.Next(5, 15);
+                for (var j = 0; j < number; j++)
+                {
+                    Bots[i].Childrens.Add(new Children
+                    {
+                        Name = $"Children {j}"
+                    });
+                }
             }
         }
     }

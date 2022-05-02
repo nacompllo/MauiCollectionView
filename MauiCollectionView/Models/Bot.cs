@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 
@@ -37,8 +38,8 @@ namespace MauiCollectionView.Models
                 _isSelected = value;
                 RaiseOnPropertyChanged();
             }
-        }        
-        
+        }
+
         private double _height;
         public double Height
         {
@@ -57,6 +58,17 @@ namespace MauiCollectionView.Models
             set
             {
                 _width = value;
+                RaiseOnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<Children> _childrens = new ObservableCollection<Children>();
+        public ObservableCollection<Children> Childrens
+        {
+            get => _childrens;
+            set
+            {
+                _childrens = value;
                 RaiseOnPropertyChanged();
             }
         }
