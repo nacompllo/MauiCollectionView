@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace MauiCollectionView.Models
 {
-    public class Bot : INotifyPropertyChanged
+    public class Button : INotifyPropertyChanged
     {
         #region INotifyPropertyChanged implementation
 
@@ -27,17 +27,6 @@ namespace MauiCollectionView.Models
             }
         }
 
-        private bool _isSelected;
-        public bool IsSelected
-        {
-            get => _isSelected;
-            set
-            {
-                _isSelected = value;
-                RaiseOnPropertyChanged();
-            }
-        }        
-        
         private double _height;
         public double Height
         {

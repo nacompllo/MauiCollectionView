@@ -1,9 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace MauiCollectionView.Models
 {
-    public class Bot : INotifyPropertyChanged
+    public class Block : INotifyPropertyChanged
     {
         #region INotifyPropertyChanged implementation
 
@@ -27,17 +28,17 @@ namespace MauiCollectionView.Models
             }
         }
 
-        private bool _isSelected;
-        public bool IsSelected
+        private ObservableCollection<Button> _buttons;
+        public ObservableCollection<Button> Buttons
         {
-            get => _isSelected;
+            get => _buttons;
             set
             {
-                _isSelected = value;
+                _buttons = value;
                 RaiseOnPropertyChanged();
             }
-        }        
-        
+        }
+
         private double _height;
         public double Height
         {

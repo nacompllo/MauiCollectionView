@@ -18,24 +18,35 @@ namespace MauiCollectionView
 
         #endregion
 
-        private ObservableCollection<Bot> _bots = new ObservableCollection<Bot>();
-        public ObservableCollection<Bot> Bots
+        private ObservableCollection<Panel> _panels = new ObservableCollection<Panel>();
+        public ObservableCollection<Panel> Panels
         {
-            get => _bots;
+            get => _panels;
             set
             {
-                _bots = value;
+                _panels = value;
                 RaiseOnPropertyChanged();
             }
         }
 
-        private Bot _selectedBot;
-        public Bot SelectedBot
+        private double _flexHeight = 200;
+        public double FlexHeight
         {
-            get => _selectedBot;
+            get => _flexHeight;
             set
             {
-                _selectedBot = value;
+                _flexHeight = value;
+                RaiseOnPropertyChanged();
+            }
+        }
+
+        private double _flexWidth = 200;
+        public double FlexWidth
+        {
+            get => _flexWidth;
+            set
+            {
+                _flexWidth = value;
                 RaiseOnPropertyChanged();
             }
         }
@@ -44,12 +55,26 @@ namespace MauiCollectionView
         {
             for (var i = 0; i < 10; i++)
             {
-                Bots.Add(new Bot
+                Panels.Add(new Panel
                 {
-                    Name = $"Bot {i}",
+                    Name = $"Panel {i}",
                     Width = 100,
-                    Height = 100
+                    Height = 100,
+                    Blocks = new ObservableCollection<Block>()
                 });
+
+                var rnd = new Random();
+                var blocksNumber = rnd.Next(1, 10);
+
+                for (var j = 0; j < 5; j++)
+                {
+                    Panels.Last().Blocks.Add(new Block
+                    {
+                        Name = $"Block {j}",
+                        Width = 100,
+                        Height = 100
+                    });
+                }
             }
         }
     }
